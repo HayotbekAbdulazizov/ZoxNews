@@ -135,6 +135,12 @@
                                   alt="thumb"
                                   class="img-fluid"
                                 />
+                                {% elif post.image_local %}
+                                <img
+                                  src="{{post.image_local.url}}"
+                                  alt="thumb"
+                                  class="img-fluid"
+                                />
                                 {% else %}
                                 <img
                                 src="/static/assets/images/dashboard/home_5.jpg"

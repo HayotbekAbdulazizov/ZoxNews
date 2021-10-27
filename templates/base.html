@@ -208,8 +208,7 @@
       <script src="/BlogAnd/static/assets/js/demo.js" ></script>
       <script src="/static/assets/js/jquery.easeScroll.js"></script>
       <!-- End custom js for this page-->
-
-
+      
       <script>
         window.onload = ()=> {
           let d = new Date()
@@ -217,6 +216,13 @@
           document.getElementById("time").innerHTML = d.toString().slice(0,21);
         }
     </script>
-    </body>
+      
+      <!-- CKEDITOR -->
+      <script type="text/javascript" src='{% static "ckeditor/ckeditor-init.js" %}'></script>
+      <script type="text/javascript" src='{% static "ckeditor/ckeditor/ckeditor.js" %}'></script>
+  
+
+
+</body>
   </html>
   

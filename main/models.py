@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils import tree
 # Create your models here.
 
 # Category Model
@@ -27,14 +28,13 @@ class Post(models.Model):
 	image = models.ImageField("Poster", upload_to='posters/', blank=True)
 	image_local = models.URLField(max_length=200, blank=True)
 	author = models.CharField("Author", max_length=100, blank=True)
-	# body = models.TextField("body", blank=True)
 	rich_body = RichTextField()
 	published = models.DateTimeField(auto_now_add=True)
 	views = models.PositiveIntegerField("Views", default=0)
 	likes = models.PositiveIntegerField('Like', default=0 , blank=True)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts', blank=True, null=True)
-	tag = models.ManyToManyField(Tags,)
-	source = models.URLField(max_length=200)
+	tag = models.ManyToManyField(Tags, blank=True)
+	source = models.URLField(max_length=200, blank=True)
 	
 	def __str__(self):
 		return f"{self.title}"

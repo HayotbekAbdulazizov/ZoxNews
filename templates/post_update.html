@@ -17,9 +17,8 @@ AndBugun|uUpdate
     
 <form action="" method="POST">
     {% csrf_token %}
-    {{form.rich_body}}
+    {{form.as_p}}
 
-    {{object.rich_body|safe}}
     <button type="submit"> Submit </button>
 </form>
 
