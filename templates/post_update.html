@@ -14,13 +14,17 @@ AndBugun|uUpdate
     
 {% endif %}
     
-
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <form action="" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <img src="{{form.image.url}}" alt="" srcset="">
+    {{form.rich_body}}
+
+    {{object.rich_body|safe}}
     <button type="submit"> Submit </button>
 </form>
+
+<!-- <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script> -->
+
 
 {% endblock content %}
     
