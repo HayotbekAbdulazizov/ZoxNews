@@ -11,10 +11,10 @@ AndBugun|uUpdate
 
 {% if object.image %}
 <img src="{{object.image.url}}" alt="">
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script> -->
     
 {% endif %}
     
-<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <form action="" method="POST">
     {% csrf_token %}
     {{form.rich_body}}
