@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+
+<h3> {{object.name}} </h3> 
+
+
+{% for post in object.posts.all %}
+        <h3> {{post.title}} </h3>
+        <h4> {{post.body}} </h4>
+     <br>
+     
+     {% if post.image %}
+        <img src="{{post.image.url}}  " alt="Image Not Found" style="width: 200px;height: 150px;">
+     {% else %}
+     <img
+     src="/static/assets/images/dashboard/home_5.jpg"
+     alt="thumb"
+     class="img-fluid"
+   />
+     {% endif %}
+             
+{% endfor %}
+{% endblock content %}
+    

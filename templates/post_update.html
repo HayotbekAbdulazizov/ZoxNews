@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+AndBugun|uUpdate    
+{% endblock title %}
+    
+
+{% block content %}
+
+
+{% if object.image %}
+<img src="{{object.image.url}}" alt="">
+    
+{% endif %}
+    
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <img src="{{form.image.url}}" alt="" srcset="">
+    <button type="submit"> Submit </button>
+</form>
+
+{% endblock content %}
+    
