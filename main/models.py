@@ -25,8 +25,8 @@ class Tags(models.Model):
 class Post(models.Model):
 	title = models.CharField("Title", max_length=300, blank=True)
 	slug = models.SlugField("*", max_length=300, unique=True, blank=True)
-	image = models.ImageField("Poster", upload_to='posters/', blank=True)
-	image_local = models.URLField(max_length=200, blank=True)
+	image_local = models.ImageField("Poster", upload_to='posters/', blank=True)
+	image = models.URLField(max_length=200, blank=True)
 	author = models.CharField("Author", max_length=100, blank=True)
 	rich_body = RichTextField()
 	published = models.DateTimeField(auto_now_add=True)

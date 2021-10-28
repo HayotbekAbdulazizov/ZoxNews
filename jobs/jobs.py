@@ -100,14 +100,14 @@ def schedule_api():
 			post.image = main_img
 			post.save()
 		except :
-			Post.objects.create( body=str(body_code), rich_body=str(body_code) ,slug=slug, title=title, views=view)
-			CreatePage(title, html_content=body_code)
-			tg_link = CreatePage(title, body_code)
+			Post.objects.create( image=main_img ,rich_body=str(body_code) ,slug=slug, title=title, views=view)
+			# CreatePage(title, html_content=body_code)
+			# tg_link = CreatePage(title, body_code)
 			bot.send_photo(
 			parse_mode='HTML',
 			chat_id=channel_id, 
 			photo=main_img, 
-			caption=f' <b> {title} </b>  \n   {str(paragraphs[0].text) } \n \n  {tg_link} \n \n \n 	')
+			caption=f' <b> {title} </b>  \n   {str(paragraphs[0].text) } \n \n  kun.uz \n \n \n 	')
 			bot.send_message(parse_mode='HTML', text=f" <b> {title} </b> \n \n {paragraphs[0].text} ", chat_id=channel_id)
 
 		print(title, 'Title')

@@ -8,20 +8,21 @@ group_id = ''
 
 # TElegraph settings
 from telegraph import Telegraph
-telegraph = Telegraph()
-telegraph.create_account(short_name='News World')
+# telegraph = Telegraph()
+# telegraph.create_account(short_name='News World')
 def CreatePage( title ,html_content):
     print('   Creating Telegraph page !!!   ')
 
-    for i in html_content.select('script'):
-        i.extract()    
-    html_content = str(html_content).replace('div', 'p')
-    response = telegraph.create_page(
-        title,
-        html_content=str(html_content)
-    )
-    link = 'https://telegra.ph/{}'.format(response['path']) 
-    return link
+    # for i in html_content.select('script'):
+        # i.extract()    
+    # html_content = str(html_content).replace('div', 'p')
+    # response = telegraph.create_page(
+        # title,
+        # html_content=str(html_content)
+    # )
+    # link = 'https://telegra.ph/{}'.format(response['path']) 
+    # return link
+    return True
 
 
 
