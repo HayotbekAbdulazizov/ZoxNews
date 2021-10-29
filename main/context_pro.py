@@ -1,5 +1,6 @@
 from django.db.models.fields import SlugField
 from .models import Post, Category,  LikedPosts
+import pytz
 
 
 def view_all(request):
@@ -9,11 +10,10 @@ def view_all(request):
 		liked_posts = LikedPosts.objects.create()
 		request.session['user_liked_posts_id'] = liked_posts.id
 	print(liked_posts)
-	
 	context = {
 		'liked_news':request.session,
-        'categories':Category.objects.all(),
+		'categories':Category.objects.all(),
 		'liked_posts':liked_posts,
-    }
+	}
 	return context
 	

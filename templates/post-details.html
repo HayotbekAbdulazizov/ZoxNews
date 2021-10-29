@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-6">
                 {% if object.image %}
-                <img src="{{object.image.url}}" alt="Post-Image" class="img-fluid" >
+                <img src="{{object.image}}" alt="Post-Image" class="img-fluid" >
                 {% else %}
                 <img
-                src="/static/assets/images/dashboard/home_5.jpg"
+                src="{{image_local.url}}"
                 alt="thumb"
                 class="img-fluid"
               />
@@ -22,7 +22,7 @@
                     <span id="date">{{object.published | date:" M H:i"}}</span> <br>
                     
                     {% if request.user.is_staff %}
-                    <a href="{{object.source}}" id="source">{{object.source}}</a> <br>
+                    <a href="{{object.source}}" id="source"> Original Post </a> <br>
                     {% endif %}
                         
                     
@@ -42,11 +42,9 @@
         </div>
     </div>
 
-    {% if object.body %}
         
     {{object.rich_body | safe}}
     
-    {% endif %}
 
 
 

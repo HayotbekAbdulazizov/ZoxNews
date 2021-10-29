@@ -131,13 +131,13 @@
                             <div class="rotate-img">
                                 {% if post.image %}                                    
                                 <img
-                                  src="{{post.image.url}}"
+                                  src="{{post.image}}"
                                   alt="thumb"
                                   class="img-fluid"
                                 />
                                 {% else %}
                                 <img
-                                src="/static/assets/images/dashboard/home_5.jpg"
+                                src="post.image_local.url"
                                 alt="thumb"
                                 class="img-fluid"
                               />
