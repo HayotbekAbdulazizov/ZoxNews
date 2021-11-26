@@ -1,5 +1,6 @@
 from django.db.models.fields import SlugField
 from .models import Post, Category,  LikedPosts
+from .forms import PostForm
 import pytz
 
 
@@ -14,6 +15,8 @@ def view_all(request):
 		'liked_news':request.session,
 		'categories':Category.objects.all(),
 		'liked_posts':liked_posts,
+		'post_form':PostForm,
+			 
 	}
 	return context
 	
