@@ -100,7 +100,7 @@ def schedule_api():
 			post.image = main_img
 			post.save()
 		except :
-			Post.objects.create( rich_body=str(body_code) ,slug=slug, title=title, views=view, likes=0, source=post_url, image=main_img)
+			Post.objects.create( body=str(body_code), rich_body=str(body_code) ,slug=slug, title=title, views=view)
 			CreatePage(title, html_content=body_code)
 			tg_link = CreatePage(title, body_code)
 			bot.send_photo(
@@ -118,5 +118,4 @@ def schedule_api():
 		print(main_img, 'Main IMG')
 		print('all')
 		print('=================================================================')
-		time.sleep(1)
 	return True
