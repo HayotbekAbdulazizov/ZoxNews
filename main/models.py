@@ -27,6 +27,7 @@ class Post(models.Model):
 	image_local = models.ImageField("Poster", upload_to='posters/', blank=True)
 	image = models.URLField(max_length=200, blank=True)
 	author = models.CharField("Author", max_length=100, blank=True)
+	# body = models.TextField("body", blank=True)
 	rich_body = RichTextField()
 	published = models.DateTimeField(auto_now_add=True)
 	views = models.PositiveIntegerField("Views", default=0)
