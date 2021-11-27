@@ -27,13 +27,12 @@ class Post(models.Model):
 	image_local = models.ImageField("Poster", upload_to='posters/', blank=True)
 	image = models.URLField(max_length=200, blank=True)
 	author = models.CharField("Author", max_length=100, blank=True)
-	# body = models.TextField("body", blank=True)
 	rich_body = RichTextField()
 	published = models.DateTimeField(auto_now_add=True)
 	views = models.PositiveIntegerField("Views", default=0)
 	likes = models.PositiveIntegerField('Like', default=0 , blank=True)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts', blank=True, null=True)
-	tag = models.ManyToManyField(Tags,)
+	tag = models.ManyToManyField(Tags, blank=True)
 	source = models.URLField(max_length=200)
 	
 	def __str__(self):
