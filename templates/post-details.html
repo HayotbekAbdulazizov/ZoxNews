@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% if object.image %}
+                <img src="{{object.image}}" alt="Post-Image" class="img-fluid" >
+                {% else %}
+                <img
+                src="{{image_local.url}}"
+                alt="thumb"
+                class="img-fluid"
+              />
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h1>{{object.title}}</h1>
+                    <span id="num_of_likes">{{object.likes}}</span> <br>
+                    <span id="date">{{object.published | date:" M H:i"}}</span> <br>
+                    
+                    {% if request.user.is_staff %}
+                    <a href="{{object.source}}" id="source"> Original Post </a> <br>
+                    {% endif %}
+                        
+                    
+                    {% if post.id in liked_posts.liked_posts %}
+                        {% else %}    
+                    <button onclick="Like({{object.id}}) " class="btn btn-group btn-outline-danger"> Like</button>
+                    {% endif %}
+                        
+                    <form action="/comment/">
+                        <input type="text" value="{{post.slug}}" name="post_slug" hidden>
+                    {% csrf_token %}
+                        <input type="text" name="name">
+                        <button type="submit" >s</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    {{object.rich_body | safe}}
+    
+
+
+
+<style>
+    p{
+        font-weight: 500;
+    }
+</style>
+
+
+
+
+
+<script>
+
+function Like(post_id){
+    let d = {
+        post_id:post_id,
+    }
+    let data = JSON.stringify(d)
+	  if (window.XMLHttpRequest) {
+      var xhttp=new XMLHttpRequest();
+    } else {  // code for IE6, IE5
+        var xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.onreadystatechange = function() {
+    if (xhttp.readyState === 4 && xhttp.status === 200) {
+      var data = JSON.parse(this.responseText);
+        console.log(data['product_like'])
+        document.getElementById("num_of_likes").innerHTML = data['product_like']
+    }else{
+      console.log('not yet')
+
+      }
+    }
+    var url = "/addlike/"
+    xhttp.open("GET", url+`?data=${data}`, true);
+    xhttp.send();
+}
+</script>
+
+
+
+
+
+    {% endblock content %}
+    

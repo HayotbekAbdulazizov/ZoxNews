@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>World Time</title>
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="/static/assets/vendors/aos/dist/aos.css/aos.css" />
+
+    <!-- End plugin css for this page -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.png" />
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <!-- endinject -->
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <div class="main-panel">
+        <!-- partial:partials/_navbar.html -->
+        <header id="header">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="navbar-top">
+                <div class="d-flex justify-content-between align-items-center">
+                  <ul class="navbar-top-left-menu">
+                    <li class="nav-item">
+                      <a href="/static/pages/index-inner.html" class="nav-link">Advertise</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/static/pages/aboutus.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Write for Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">In the Press</a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-top-right-menu">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+
+                        
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="navbar-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a class="navbar-brand" href="#"
+                      ><img src="/static/assets/images/logo.svg" alt=""
+                    /></a>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">        
+          {{post_form.as_p}}
+        </form>
+
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+                  </div>
+                  <div>
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                      class="navbar-collapse justify-content-center collapse"
+                      id="navbarSupportedContent"
+                    >
+                    <button class=" navbar-close navbar-nav d-lg-flex justify-content-between align-items-center " > Close </button>
+                      <ul
+                        class="navbar-nav d-lg-flex justify-content-between align-items-center"
+                      >
+                        <li>
+                          <!-- <button class="navbar-close " style="" >
+                            <i class="mdi mdi-close"></i>
+                          </button> -->
+                        </li>                        
+                        <li class="nav-item active">
+                          <a class="nav-link" href="{% url 'main:home'  %}"> HOME  </a>
+                        </li>
+                        {% for category in categories %}
+                        <li class="nav-item active">
+                          <a class="nav-link" href="{% url 'main:category_sort' category.slug %}"> {{category.name}}  </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                  <ul class="social-media">
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-youtube"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-twitter"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+
+
+{% block content %}
+    
+{% endblock content %}
+
+        <!-- partial:partials/_footer.html -->
+        <footer>
+            <div class="footer-bottom">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="d-sm-flex justify-content-between align-items-center">
+                      <div class="fs-14 font-weight-600">
+                        © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> BootstrapDash</a>. All rights reserved.
+                      </div>
+                      <div class="fs-14 font-weight-600">
+                        Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+  
+          <!-- partial -->
+        </div>
+      </div>
+      <!-- inject:js -->
+      <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+      <!-- endinject -->
+      <!-- plugin js for this page -->
+      <script src="/static/assets/vendors/aos/dist/aos.js/aos.js"></script>
+      <!-- End plugin js for this page -->
+      <!-- Custom js for this page-->
+      <script src="/static/assets/js/demo.js"></script>
+      <script src="/BlogAnd/static/assets/js/demo.js" ></script>
+      <script src="/static/assets/js/jquery.easeScroll.js"></script>
+      <!-- End custom js for this page-->
+
+
+      <script>
+        window.onload = ()=> {
+          let d = new Date()
+          console.log(d.toString().slice(0,15))
+          document.getElementById("time").innerHTML = d.toString().slice(0,21);
+        }
+    </script>
+    </body>
+  </html>
+  
