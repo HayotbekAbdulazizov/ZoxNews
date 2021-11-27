@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from slugify import slugify
 import time
 from .telegraph_telebot import CreatePage, channel_id, bot
+from .transliterate import to_latin
+from etranslate import translate
 
 
 
@@ -110,13 +112,22 @@ def schedule_api():
 			caption=f' <b> {title} </b>  \n   {str(paragraphs[0].text) } \n \n  {tg_link} \n \n \n 	')
 			bot.send_message(parse_mode='HTML', text=f" <b> {title} </b> \n \n {paragraphs[0].text} ", chat_id=channel_id)
 
-		print(title, 'Title')
-		print(slug, 'Slug')
-		print(post_url, ' Post Url')
-		print(view, 'views')
-		print(body[:20], 'Body Code')
-		print(main_img, 'Main IMG')
+		# print(title, 'Title')
+		# print(slug, 'Slug')
+		# print(post_url, ' Post Url')
+		# print(view, 'views')
+		# print(body[:20], 'Body Code')
+		# print(main_img, 'Main IMG')
+
+		# Translation UZ_RU
+		print('TITLE_RU', translate(to_latin(title),src='uz', to='ru'))
+		print('TITLE_RU', translate(to_latin(title),src='uz', to='ru'))
+		print('TITLE_RU', translate(to_latin(title),src='uz', to='ru'))
+
+		print
 		print('all')
 		print('=================================================================')
 		time.sleep(1)
 	return True
+
+	# https://localazy.com/my/community
