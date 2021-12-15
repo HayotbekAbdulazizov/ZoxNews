@@ -68,6 +68,10 @@ from etranslate import translate
 
 
 
+
+# need to add another websites as aljazeera bbc and translation with etranslate
+
+
 def schedule_api():
 	r = requests.get("https://kun.uz/news/list")
 	soup = BeautifulSoup(r.text, 'html.parser')
